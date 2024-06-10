@@ -70,10 +70,10 @@ function appendArrowSign(parent) {
 
 function appendSelectMaxOrMin(parent) {
     const select = document.createElement('select')
-    const MinMax = ['min', 'max'].forEach(item => {
+    const MinMax = ['min', 'max'].forEach(element => {
         const option = document.createElement('option')
-        option.value = item
-        option.textContent = item
+        option.value = element
+        option.textContent = element
         select.appendChild(option)
     })
     parent.appendChild(select)
