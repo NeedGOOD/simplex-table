@@ -1,7 +1,7 @@
 function createStartTable(container, rows = 2, cols = 2) {
     container.innerHTML = ''
 
-    cols *= 2
+    cols = cols * 2 + 1
 
     const table = document.createElement('table')
     table.className = 'table-restrictions'
@@ -15,7 +15,10 @@ function createStartTable(container, rows = 2, cols = 2) {
 
             if (j === cols) {
                 td.className = 'last-box'
-                appendEqualsSign(div)
+                appendLastInputBox(div)
+            } else if (j === cols - 1) {
+                td.className = 'signs-box'
+                appendSelectSigns(div)
             } else if (j % 2 !== 0) {
                 ++k
                 td.className = 'odd-box'
@@ -32,10 +35,10 @@ function createStartTable(container, rows = 2, cols = 2) {
     container.appendChild(table)
 }
 
-function appendEqualsSign(parent) {
-    const span = document.createElement('span')
-    span.innerText = '='
-    parent.appendChild(span)
+function appendLastInputBox(parent) {
+    const input = document.createElement('input')
+    input.type = 'text'
+    parent.appendChild(input)
 }
 
 function appendInputAndPre(parent, index) {
@@ -54,4 +57,15 @@ function appendPlusSign(parent) {
     const span = document.createElement('span')
     span.innerText = '+'
     parent.appendChild(span)
+}
+
+function appendSelectSigns(parent) {
+    const select = document.createElement('select')
+    const signs = ['=', '≤', '≥'].forEach(element => {
+        const option = document.createElement('option')
+        option.value = element
+        option.textContent = element
+        select.appendChild(option)
+    });
+    parent.appendChild(select)
 }
