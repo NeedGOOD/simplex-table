@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+}
+
+.select-size {
+    display: flex;
+    justify-content: center
+}
+
+input[type="text"] {
+    width: 25px;
+    height: 25px;
+
+    text-align: center;
+}
+
+.odd-box {
+    width: 50px;
+}
+
+.info-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.table-restrictions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

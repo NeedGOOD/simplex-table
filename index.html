@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simplex table</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+
+<body>
+    <table class="select-size">
+        <tr>
+            <td><label for="variables">Кількість змінних:</label></td>
+            <td>
+                <select name="variables" id="variables">
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="restrictions">Кількість обмежень:</label></td>
+            <td>
+                <select name="restrictions" id="restrictions">
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <div id="table-container"></div>
+    <script src="./src/createStartTable.js"></script>
+    <script src="./src/inputSize.js"></script>
+</body>
+
+</html>
