@@ -63,20 +63,6 @@ function appendSymbolF(parent, index) {
     parent.appendChild(pre)
 }
 
-function appendInputAfterSymbolF(parent, index) {
-    const inputText = document.createElement('input')
-    inputText.type = 'text'
-    // inputText.className = 'dynamicInputFunction'
-    // inputText.id = `x${index}`
-    const pre = document.createElement('pre')
-    pre.innerText = 'x'
-    const sub = document.createElement('sub')
-    sub.innerText = index
-    pre.appendChild(sub)
-    parent.appendChild(inputText)
-    parent.appendChild(pre)
-}
-
 function appendArrowSign(parent) {
     const span = document.createElement('span')
     span.innerHTML = '&#10141;'
