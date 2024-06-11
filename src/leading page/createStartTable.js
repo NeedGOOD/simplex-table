@@ -18,7 +18,7 @@ function createStartTable(container, rows = 2, cols = 2) {
                 appendLastInputBox(div)
             } else if (j === cols - 1) {
                 td.className = 'signs-box'
-                appendSelectSigns(div)
+                appendSelectSigns(div, i)
             } else if (j % 2 !== 0) {
                 ++k
                 td.className = 'odd-box'
@@ -62,9 +62,9 @@ function appendPlusSign(parent) {
     parent.appendChild(span)
 }
 
-function appendSelectSigns(parent) {
+function appendSelectSigns(parent, index) {
     const select = document.createElement('select')
-    select.id = 'signs'
+    select.id = `signs${index}`
     const signs = ['=', '≤', '≥'].forEach(element => {
         const option = document.createElement('option')
         option.value = element
