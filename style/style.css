@@ -2,8 +2,10 @@
     box-sizing: border-box;
 }
 
-.function-start {
-    width: 41px;
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .first-info-box {
@@ -13,20 +15,11 @@
     justify-content: space-evenly;
 }
 
-.select-size {
-    display: flex;
-    justify-content: center
-}
-
 input[type="text"] {
     width: 25px;
     height: 25px;
 
     text-align: center;
-}
-
-.odd-box {
-    width: 50px;
 }
 
 .info-box {
@@ -35,8 +28,6 @@ input[type="text"] {
     justify-content: space-evenly;
 }
 
-.table-restrictions {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.odd-box {
+    width: 50px;
 }
