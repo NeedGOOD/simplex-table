@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', function () {
     function variablesOrRestrictions() {
         const variables = parseInt(variablesSelect.value)
         const restrictions = parseInt(restrictionsSelect.value)
-        createStartTable(tableContainer, restrictions, variables)
         createFuntion(functionContainer, variables)
+        createStartTable(tableContainer, restrictions, variables)
     }
 
     variablesSelect.addEventListener('change', variablesOrRestrictions)
