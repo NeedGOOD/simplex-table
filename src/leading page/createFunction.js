@@ -2,7 +2,6 @@ function createFuntion(container, cols = 2) {
     container.innerHTML = ''
 
     cols = cols * 2 + 1
-    console.log(cols)
 
     const table = document.createElement('table')
     table.className = 'table-restrictions'
@@ -35,37 +34,53 @@ function createFuntion(container, cols = 2) {
 
 function handleOddColumn(td, div, index) {
     if (index === 1) {
-        div.className = 'first-info-box';
-        td.className = 'first-odd-box';
-        appendSymbolF(div, index);
+        div.className = 'first-info-box'
+        td.className = 'first-odd-box'
+        appendSymbolF(div, index)
     } else {
-        td.className = 'odd-box';
-        appendInputAndPre(div, index);
+        td.className = 'odd-box'
+        appendInputAndPre(div, index, 'Function')
     }
 }
 
 function appendSymbolF(parent, index) {
-    const span = document.createElement('span');
-    span.className = 'function-start';
-    span.innerText = 'F(x) = ';
-    parent.appendChild(span);
+    const span = document.createElement('span')
+    span.className = 'function-start'
+    span.innerText = 'F(x) = '
+    parent.appendChild(span)
 
-    const inputText = document.createElement('input');
-    inputText.type = 'text';
-    parent.appendChild(inputText);
+    const inputText = document.createElement('input')
+    inputText.type = 'text'
+    inputText.className = 'dynamicInputFunction'
+    inputText.id = `x${index}`
+    parent.appendChild(inputText)
 
-    const pre = document.createElement('pre');
-    pre.innerText = 'x';
-    const sub = document.createElement('sub');
-    sub.innerText = index;
-    pre.appendChild(sub);
-    parent.appendChild(pre);
+    const pre = document.createElement('pre')
+    pre.innerText = 'x'
+    const sub = document.createElement('sub')
+    sub.innerText = index
+    pre.appendChild(sub)
+    parent.appendChild(pre)
+}
+
+function appendInputAfterSymbolF(parent, index) {
+    const inputText = document.createElement('input')
+    inputText.type = 'text'
+    // inputText.className = 'dynamicInputFunction'
+    // inputText.id = `x${index}`
+    const pre = document.createElement('pre')
+    pre.innerText = 'x'
+    const sub = document.createElement('sub')
+    sub.innerText = index
+    pre.appendChild(sub)
+    parent.appendChild(inputText)
+    parent.appendChild(pre)
 }
 
 function appendArrowSign(parent) {
-    const span = document.createElement('span');
-    span.innerHTML = '&#10141;';
-    parent.appendChild(span);
+    const span = document.createElement('span')
+    span.innerHTML = '&#10141;'
+    parent.appendChild(span)
 }
 
 function appendSelectMaxOrMin(parent) {

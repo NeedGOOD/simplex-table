@@ -22,7 +22,7 @@ function createStartTable(container, rows = 2, cols = 2) {
             } else if (j % 2 !== 0) {
                 ++k
                 td.className = 'odd-box'
-                appendInputAndPre(div, k)
+                appendInputAndPre(div, k, 'Equation', i + 1)
             } else if (j % 2 === 0) {
                 td.className = 'pair-box'
                 appendPlusSign(div)
@@ -41,9 +41,12 @@ function appendLastInputBox(parent) {
     parent.appendChild(input)
 }
 
-function appendInputAndPre(parent, index) {
+function appendInputAndPre(parent, index, that, j) {
     const inputText = document.createElement('input')
     inputText.type = 'text'
+    inputText.className = (that === 'Function' || that === 'Equation')
+        ? `dynamicInput${that}` : ''
+    inputText.id = j ? `x${j}${index}` : `x${index}`;
     const pre = document.createElement('pre')
     pre.innerText = 'x'
     const sub = document.createElement('sub')
@@ -66,6 +69,6 @@ function appendSelectSigns(parent) {
         option.value = element
         option.textContent = element
         select.appendChild(option)
-    });
+    })
     parent.appendChild(select)
 }
