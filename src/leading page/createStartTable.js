@@ -15,7 +15,7 @@ function createStartTable(container, rows = 2, cols = 2) {
 
             if (j === cols) {
                 td.className = 'last-box'
-                appendLastInputBox(div)
+                appendLastInputBox(div, i)
             } else if (j === cols - 1) {
                 td.className = 'signs-box'
                 appendSelectSigns(div, i)
@@ -35,9 +35,10 @@ function createStartTable(container, rows = 2, cols = 2) {
     container.appendChild(table)
 }
 
-function appendLastInputBox(parent) {
+function appendLastInputBox(parent, index) {
     const input = document.createElement('input')
     input.type = 'text'
+    input.id = `equal${index}`
     parent.appendChild(input)
 }
 
