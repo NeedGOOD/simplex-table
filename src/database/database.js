@@ -1,46 +1,38 @@
 document.getElementById('result').addEventListener('click', function () {
-    const variablesSelect = document.getElementById('variables').value
-    const restrictionsSelect = document.getElementById('restrictions').value
+    const variables = parseInt(document.getElementById('variables').value)
+    const restrictions = parseInt(document.getElementById('restrictions').value)
 
-    functionDataSearch()
-    equationDataSearch(restrictionsSelect, variablesSelect)
+    const { valuesFunction, MinMax } = functionDataSearch()
+    const { arrayMatrix, valuesEqual, valuesSigns } = equationDataSearch(restrictions, variables)
+    outputTableInfo(valuesFunction, arrayMatrix, valuesEqual, valuesSigns)
 })
 
 function functionDataSearch() {
     const inputsFunction = document.querySelectorAll('.dynamicInputFunction')
-    let valuesFunction = []
-
-    inputsFunction.forEach(input => {
-        valuesFunction.push(input.value)
-    })
-
+    const valuesFunction = Array.from(inputsFunction, input => parseInt(input.value));
     const MinMax = document.getElementById('min-or-max').value
+
+    return { valuesFunction, MinMax }
 }
 
 function equationDataSearch(index, jndex) {
     const inputsEquation = document.querySelectorAll('.dynamicInputEquation')
-    let idsEquation = []
-    let valuesEquation = []
-    inputsEquation.forEach(input => {
-        idsEquation.push(input.id)
-        valuesEquation.push(input.value)
-    })
+    const idsEquation = Array.from(inputsEquation, input => input.id)
+    const valuesEquation = Array.from(inputsEquation, input => parseInt(input.value))
 
-    let arrayMatrix = []
+    const arrayMatrix = Array.from({ length: index }, (_, i) =>
+        Array.from({ length: jndex }, (_, j) => {
+            const id = `x${i + 1}${j + 1}`;
+            const valueIndex = idsEquation.indexOf(id);
+            return valueIndex !== -1 ? valuesEquation[valueIndex] : '';
+        })
+    );
 
-    for (let i = 0; i < index; ++i) {
-        arrayMatrix[i] = []
-        for (let j = 0; j < jndex; ++j) {
-            const id = `x${i + 1}${j + 1}`
-            const index = idsEquation.indexOf(id)
-            arrayMatrix[i][j] = (index !== -1) ? valuesEquation[index] : ''
-        }
-    }
-
-    let valuesSigns = []
-    let valuesEqual = []
-    for (let i = 0; i < index; ++i) {
-        valuesSigns.push(document.getElementById(`signs${i}`).value)
-        valuesEqual.push(document.getElementById(`equal${i}`).value)
-    }
+    const valuesSigns = Array.from({ length: index }, (_, i) =>
+        document.getElementById(`signs${i}`).value
+    );
+    const valuesEqual = Array.from({ length: index }, (_, i) =>
+        document.getElementById(`equal${i}`).value
+    );
+    return { arrayMatrix, valuesEqual, valuesSigns }
 }
