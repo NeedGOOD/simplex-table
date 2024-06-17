@@ -66,7 +66,7 @@ function appendPlusSign(parent) {
 function appendSelectSigns(parent, index) {
     const select = document.createElement('select')
     select.id = `signs${index}`
-    const signs = ['=', '≤', '≥'].forEach(element => {
+    const signs = ['≤', '=', '≥'].forEach(element => {
         const option = document.createElement('option')
         option.value = element
         option.textContent = element

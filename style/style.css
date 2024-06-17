@@ -8,6 +8,14 @@ body {
     align-items: center;
 }
 
+.answer {
+    width: 50px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+    text-align: center;
+}
+
 .first-info-box {
     width: 100px;
     display: flex;
